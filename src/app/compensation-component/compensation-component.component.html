@@ -32,9 +32,9 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-3" *ngIf="false">
+        <div class="col-sm-3" *ngIf="!isSuccess">
             <div class="row">
-                <button class="btn btn-edit" type="button">Need Changes&nbsp;&nbsp;<i class="fa fa-pencil"
+                <button class="btn btn-edit" type="button" (click)="needChange();">Need Changes&nbsp;&nbsp;<i class="fa fa-pencil"
                         aria-hidden="true"></i></button>
             </div>
             <div class="row">
@@ -57,7 +57,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-3">
+        <div class="col-sm-3" *ngIf="isSuccess">
             <b>Section#4</b>
             <p>
                 68% is not an acceptable rate.
@@ -65,8 +65,8 @@
             <p>
                 Consider 86% of Billed Charges.
             </p>
-            <button class="btn btn-round" type="button" style="margin-bottom: 5%">Accept</button>
-            <button class="btn btn-round" type="button">Initiate Discussion</button>
+            <button class="btn btn-round" type="button" style="margin-bottom: 5%" (click)="accept()">Accept</button>
+            <button class="btn btn-round" type="button" (click)="initiateDiscussion()">Initiate Discussion</button>
         </div>
     </div>
 
