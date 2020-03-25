@@ -1,0 +1,17 @@
+.info-box {
+    border-style: solid;
+    border-color: rgb(94, 89, 89);
+    border-width: thin;
+}
+
+.yellow-color {
+    background-color: yellow;
+}
+
+.light-yellow-color {
+    background-color: lightyellow;
+}
+
+.txt-spacing {
+    margin: 7px;
+}

@@ -1,1 +1,36 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "~font-awesome/css/font-awesome.css";
+
+* { 
+    font-family: FontAwesome;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #00124a;
+    border-radius: 35px;
+    border: 2px solid #00124a;
+}
+
+.btn-secondary {
+    color: #007bff;
+    background-color: #fff;
+    border-radius: 35px;
+    border: 1px solid rgba(134, 142, 150, 0.75);
+}
+
+.btn-edit {
+    color: #fff;
+    background-color: #868e96;
+    border-radius: 35px;
+    border: 1px solid rgba(134, 142, 150, 0.75);
+}
+
+.btn-round {
+    width: 70%;
+    color: #007bff;
+    border-radius: 35px;
+    border: 2px solid #007bff;
+    border-width: thin;
+}
