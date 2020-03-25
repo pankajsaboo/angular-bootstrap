@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CompensationComponentComponent } from './compensation-component/compensation-component.component';
 import { DesputeResolutionComponent } from './despute-resolution/despute-resolution.component';
+import { GeneralProvisionsComponent } from './general-provisions/general-provisions.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CompensationComponentComponent,
-    DesputeResolutionComponent
+    DesputeResolutionComponent,
+    GeneralProvisionsComponent
   ],
   imports: [
     BrowserModule,

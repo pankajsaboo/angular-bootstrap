@@ -1,0 +1,59 @@
+<div class="container">
+    <div class="row">
+        &nbsp;
+    </div>
+    <div class="row">
+        <h1>General Provisions</h1>
+    </div>
+    <div class="row">
+        <div class="col-sm-9">
+            <div class="card">
+                <div class="card-body">
+                    <p class="card-text">
+                        Amendments<br/>
+                        Except as provided in Section 1.12, Section 3.2, Section 4.4(a), and this Section 9.5, this Agreement may be amended only by mutual, written consent of Payer and Provider, Notwithstanding the foregoing, or if Payers legal counsel determines in good faith that this Agreement must be modified to be in compliance with applicable federal or state law or to meet the requirements of accreditation organizations which accredit Payer and its providers, Payer may be amend this Agreement by delivering to Provider a written amendment to this Agreement incorporating the required modifications
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3" *ngIf="!isSuccess">
+            <div class="row">
+                <button class="btn btn-edit" type="button" (click)="needChange();">Need Changes&nbsp;&nbsp;<i class="fa fa-pencil"
+                        aria-hidden="true"></i></button>
+            </div>
+        </div>
+        <div class="col-sm-3" *ngIf="isSuccess">
+            <b>Section#4</b>
+            <p>
+                68% is not an acceptable rate.
+            </p>
+            <p>
+                Consider 86% of Billed Charges.
+            </p>
+            <button class="btn btn-round" type="button" style="margin-bottom: 5%" (click)="accept()">Accept</button>
+            <button class="btn btn-round" type="button" (click)="initiateDiscussion()">Initiate Discussion</button>
+        </div>
+    </div>
+
+    <div class="row">
+        &nbsp;
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <input type="checkbox"> I here by accepts all the terms and conditions.
+        </div>
+    </div>
+    <div class="row">
+        &nbsp;
+    </div>
+    <div class="row">
+        <div class="col-sm-5">
+            &nbsp;
+        </div>
+        <div class="col-sm-3">
+            <button class="btn btn-secondary" type="button">Cancel</button>&nbsp;&nbsp;
+            <button class="btn btn-primary" type="button">Save & Continue</button>
+        </div>
+    </div>
+
+</div>
