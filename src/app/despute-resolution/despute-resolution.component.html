@@ -1,0 +1,62 @@
+<div class="container">
+    <div class="row">
+        &nbsp;
+    </div>
+    <div class="row">
+        <h1>Resolution of Despute</h1>
+    </div>
+    <div class="row">
+        <div class="col-sm-9">
+            <div class="card">
+                <div class="card-body">
+                    <p class="card-text">
+                        IV. REPRESENTATIONS AND WARRANTIES OF PROVIDER<br/>
+                        4.1 Licenses, Previlegs and Insurance. At all time during the term of this Agreement, Provider shall, and if Provider is comprised of a group of licensed providers, each such licensed provider shall:
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        (a) be licensed under the laws of the State of California to provide the services described in Exhibit A, and such license shall be free of any restrictions or limitations.<br/>
+                        (b) be licensed under the laws of the State of California to provide the services described in Exhibit A, and such license shall be free of any restrictions or limitations.<br/>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3" *ngIf="!isSuccess">
+            <div class="row">
+                <button class="btn btn-edit" type="button" (click)="needChange();">Need Changes&nbsp;&nbsp;<i class="fa fa-pencil"
+                        aria-hidden="true"></i></button>
+            </div>
+        </div>
+        <div class="col-sm-3" *ngIf="isSuccess">
+            <b>Section#4</b>
+            <p>
+                68% is not an acceptable rate.
+            </p>
+            <p>
+                Consider 86% of Billed Charges.
+            </p>
+            <button class="btn btn-round" type="button" style="margin-bottom: 5%" (click)="accept()">Accept</button>
+            <button class="btn btn-round" type="button" (click)="initiateDiscussion()">Initiate Discussion</button>
+        </div>
+    </div>
+
+    <div class="row">
+        &nbsp;
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <input type="checkbox"> I here by accepts all the terms and conditions.
+        </div>
+    </div>
+    <div class="row">
+        &nbsp;
+    </div>
+    <div class="row">
+        <div class="col-sm-5">
+            &nbsp;
+        </div>
+        <div class="col-sm-3">
+            <button class="btn btn-secondary" type="button">Cancel</button>&nbsp;&nbsp;
+            <button class="btn btn-primary" type="button">Save & Continue</button>
+        </div>
+    </div>
+
+</div>

@@ -34,3 +34,7 @@
     border: 2px solid #007bff;
     border-width: thin;
 }
+
+.txt-spacing {
+    margin: 7px;
+}
