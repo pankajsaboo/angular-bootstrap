@@ -1,0 +1,67 @@
+<div class="container">
+    <div class="row">
+        &nbsp;
+    </div>
+    <div class="row">
+        <h1>Provider Services</h1>
+    </div>
+    <div class="row">
+        <div class="col-sm-9">
+            <div class="card">
+                <div class="card-body">
+                    <p class="card-text">
+                        Provider agrees to participate in, and this agreement shall apply to, CVS Health's Commercial PPO/EPO (CVS Health Standard Network) Benefit Programs and all other Benefit under which CVS Health compensates Provider for Covered Services<br/>
+                        pursuant to the compensation as in the Compensation section<br/>
+                        <input type="checkbox"> Commercial PPO/EPO (Network A)<br/>
+                        <input type="checkbox"> Commercial PPO/EPO (Network B)<br/>
+                        <input type="checkbox"> Commercial PPO/EPO (Health Network C)<br/>
+                        <input type="checkbox"> Medicare Advantage PPO<br/>
+                        <input type="checkbox"> Commercial HMO<br/>
+                        <input type="checkbox"> Medicare Advantage HMO<br/>
+                        <br/>
+                        1.1. Providing Covered Services,
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3" *ngIf="!isSuccess">
+            <div class="row">
+                <button class="btn btn-edit" type="button" (click)="needChange();">Need Changes&nbsp;&nbsp;<i class="fa fa-pencil"
+                        aria-hidden="true"></i></button>
+            </div>
+        </div>
+        <div class="col-sm-3" *ngIf="isSuccess">
+            <b>Section#4</b>
+            <p>
+                68% is not an acceptable rate.
+            </p>
+            <p>
+                Consider 86% of Billed Charges.
+            </p>
+            <button class="btn btn-round" type="button" style="margin-bottom: 5%" (click)="accept()">Accept</button>
+            <button class="btn btn-round" type="button" (click)="initiateDiscussion()">Initiate Discussion</button>
+        </div>
+    </div>
+
+    <div class="row">
+        &nbsp;
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <input type="checkbox"> I here by accepts all the terms and conditions.
+        </div>
+    </div>
+    <div class="row">
+        &nbsp;
+    </div>
+    <div class="row">
+        <div class="col-sm-5">
+            &nbsp;
+        </div>
+        <div class="col-sm-3">
+            <button class="btn btn-secondary" type="button">Cancel</button>&nbsp;&nbsp;
+            <button class="btn btn-primary" type="button">Save & Continue</button>
+        </div>
+    </div>
+
+</div>
