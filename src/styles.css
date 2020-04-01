@@ -38,3 +38,8 @@
 .txt-spacing {
     margin: 7px;
 }
+
+.button-padding-text {
+    padding-left: 5px;
+    padding-right: 5px;
+}
