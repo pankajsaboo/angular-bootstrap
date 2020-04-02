@@ -52,14 +52,32 @@
         <div class="col-sm-6">
             &nbsp;
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-4" *ngIf="isAccept">
+            <span class="green"><b>Action approved</b></span>
+        </div>
+        <div class="col-sm-4" *ngIf="isEdit">
+            <span><b>Discard changes</b></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="btn btn-secondary" type="button" (click)="saveBtn()">
+                <span class="button-padding-text">Save</span>
+            </button>
+        </div>
+        <div class="col-sm-4" *ngIf="isDelete">
+            <span><b>Delete this clause?</b></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="btn btn-secondary" type="button">
-                <span class="button-padding-text">Edit</span>
-            </button>&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="button-padding-text">No</span>
+            </button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="btn btn-secondary" type="button">
                 <span class="button-padding-text">Delete</span>
+            </button>
+        </div>
+        <div class="col-sm-4" *ngIf="!isAccept && !isEdit && !isDelete">
+            <button class="btn btn-secondary" type="button" (click)="editBtn()">
+                <span class="button-padding-text">Edit</span>
             </button>&nbsp;&nbsp;&nbsp;&nbsp;
-            <button class="btn btn-secondary" type="button">
+            <button class="btn btn-secondary" type="button" (click)="deleteBtn()">
+                <span class="button-padding-text">Delete</span>
+            </button>&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="btn btn-secondary" type="button" (click)="acceptBtn()">
                 <span class="button-padding-text">Accept</span>
             </button>
         </div>
