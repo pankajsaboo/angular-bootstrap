@@ -6,42 +6,21 @@
         <h1>General Provisions</h1>
     </div>
     <div class="row">
-        <h4>Intensive Outpatient</h4>
+        <h4>{{title}}</h4>
     </div>
     <div class="row">
         <div class="col-sm-9">
             <div class="card">
                 <div class="card-body">
-                    <p class="card-text">
-                        Amendments<br/>
-                        Except as provided in Section 1.12, Section 3.2, Section 4.4(a), and this Section 9.5, this Agreement may be amended only by mutual, written consent of Payer and Provider, Notwithstanding the foregoing, or if Payers legal counsel determines in good faith that this Agreement must be modified to be in compliance with applicable federal or state law or to meet the requirements of accreditation organizations which accredit Payer and its providers, Payer may be amend this Agreement by delivering to Provider a written amendment to this Agreement incorporating the required modifications
+                    <p class="card-text" [attr.contentEditable]="isEdit"
+                    #content>
+                        <router-outlet></router-outlet>
                     </p>
                 </div>
             </div>
         </div>
-        <div class="col-sm-3" *ngIf="!isSuccess">
-            <div class="row">
-                <button class="btn btn-edit" type="button" (click)="needChange();">
-                    <span class="button-padding-text">Need Changes&nbsp;&nbsp;
-                        <i class="fa fa-pencil" aria-hidden="true"></i>
-                    </span>
-                </button>
-            </div>
-        </div>
-        <div class="col-sm-3" *ngIf="isSuccess">
-            <b>Section#4</b>
-            <p>
-                68% is not an acceptable rate.
-            </p>
-            <p>
-                Consider 86% of Billed Charges.
-            </p>
-            <button class="btn btn-round" type="button" style="margin-bottom: 5%" (click)="accept()">
-                <span class="button-padding-text">Accept</span>
-            </button>
-            <button class="btn btn-round" type="button" (click)="initiateDiscussion()">
-                <span class="button-padding-text">Initiate Discussion</span>
-            </button>
+        <div class="col-sm-3">
+            <app-gp-right-menu></app-gp-right-menu>
         </div>
     </div>
 
@@ -56,7 +35,9 @@
             <span class="green"><b>Action approved</b></span>
         </div>
         <div class="col-sm-4" *ngIf="isEdit">
-            <span><b>Discard changes</b></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="btn btn-secondary" type="button" (click)="cancelBtn()">
+                <span class="button-padding-text">Discard Changes</span>
+            </button>&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="btn btn-secondary" type="button" (click)="saveBtn()">
                 <span class="button-padding-text">Save</span>
             </button>
@@ -71,7 +52,7 @@
             </button>
         </div>
         <div class="col-sm-4" *ngIf="!isAccept && !isEdit && !isDelete">
-            <button class="btn btn-secondary" type="button" (click)="editBtn()">
+            <button class="btn btn-secondary" type="button" (click)="editBtn(content.textContent)">
                 <span class="button-padding-text">Edit</span>
             </button>&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="btn btn-secondary" type="button" (click)="deleteBtn()">
@@ -96,7 +77,7 @@
             &nbsp;
         </div>
         <div class="col-sm-4">
-            <button class="btn btn-secondary" type="button">
+            <button class="btn btn-secondary" type="button" (click)="cancelBtn()">
                 <span class="button-padding-text">Cancel</span>
             </button>&nbsp;&nbsp;
             <button class="btn btn-primary" type="button">

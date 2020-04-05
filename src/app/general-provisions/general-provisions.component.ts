@@ -1,19 +1,37 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ChangeDetectorRef, AfterViewChecked, ViewChild, ElementRef, Renderer2 } from '@angular/core';
+import { GPTitleService } from '../services/gp-title.service';
 
 @Component({
   selector: 'app-general-provisions',
   templateUrl: './general-provisions.component.html',
-  styleUrls: ['./general-provisions.component.css']
+  styleUrls: ['./general-provisions.component.css'],
+  providers: [GPTitleService]
 })
-export class GeneralProvisionsComponent implements OnInit {
-  isSuccess:boolean;
+export class GeneralProvisionsComponent implements OnInit, AfterViewChecked {
+  isSuccess: boolean;
   isAccept: boolean;
   isEdit: boolean;
   isDelete: boolean;
-  
-  constructor() { }
+  title: string;
+  oldTxt: string;
+  newText: string;
+  span: HTMLParagraphElement;
+
+  @ViewChild('content') inputEl: ElementRef; 
+
+  constructor(private gpTitleService: GPTitleService,
+    private cdRef: ChangeDetectorRef,
+    private renderer: Renderer2) { }
 
   ngOnInit(): void {
+
+  }
+
+  ngAfterViewChecked() {
+    this.gpTitleService.changeEmitted$.subscribe((data: string) => {
+      this.title = data;
+    });
+    this.cdRef.detectChanges();
   }
 
   needChange(): void {
@@ -27,20 +45,29 @@ export class GeneralProvisionsComponent implements OnInit {
   initiateDiscussion(): void {
     this.isSuccess = false;
   }
-  
+
   acceptBtn(): void {
     this.isAccept = true;
   }
 
-  editBtn(): void {
+  editBtn(text: string): void {
     this.isEdit = true;
+    this.oldTxt = text;
   }
 
   saveBtn(): void {
     this.isEdit = false;
+    console.log(this.inputEl.nativeElement.textContent);
   }
 
   deleteBtn(): void {
     this.isDelete = true;
+  }
+
+  cancelBtn(): void {
+    this.isSuccess = false;
+    this.isAccept = false;
+    this.isEdit = false;
+    this.isDelete = false;
   }
 }

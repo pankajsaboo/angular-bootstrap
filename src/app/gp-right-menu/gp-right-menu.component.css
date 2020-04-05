@@ -1,0 +1,13 @@
+.gp-side-nav a {
+    padding: 8px 8px 8px 32px;
+    display: block;
+}
+
+.sidenav a:hover {
+    color: grey;
+}
+
+.active {
+    background-color: #b5b5b5;
+    color: black;
+}
