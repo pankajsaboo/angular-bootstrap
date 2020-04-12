@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-despute-resolution',
@@ -6,9 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./despute-resolution.component.css']
 })
 export class DesputeResolutionComponent implements OnInit {
-  isSuccess:boolean;
-  
-  constructor() { }
+  isSuccess: boolean;
+  isTerms = false;
+
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -23,6 +25,15 @@ export class DesputeResolutionComponent implements OnInit {
 
   initiateDiscussion(): void {
     this.isSuccess = false;
+  }
+
+  next():void {
+    this.router.navigate(['/general-provisions']);
+  }
+
+  reset(): void {
+    this.isSuccess = false;
+    this.isTerms = false;
   }
 
 }

@@ -1,94 +1,77 @@
-<div class="container">
-    <div class="row">
-        &nbsp;
-    </div>
-    <div class="row">
+<div class="p-grid container">
+    <div class="p-col-12">
         <h1>Compensation</h1>
     </div>
-    <div class="row">
-        <div class="col-sm-9">
-            <div class="card">
-                <div class="card-body">
-                    <p class="card-text">Payer shall reimburse provider for Covered Services provided to Members
-                        enrolled in
-                        Benefit Programs to which this arrangement applies as follows:</p>
-                    <table class="table">
-                        <thead class="thead-light">
-                            <tr>
-                                <th scope="col" width="25%">Services</th>
-                                <th scope="col" width="45%">Billing Codes</th>
-                                <th scope="col" width="30%">Rates</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td scope="row">All Services</td>
-                                <td>1461F, 1461F, 1461F, 1461F, 1461F, 1461F, 1461F, 1461F, 1461F, 1461F, 1461F, 1461F,
-                                    1461F, 1461F</td>
-                                <td>100% Billed Charges</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+    <div class="p-col-9">
+        <div class="box">
+            <p>Payer shall reimburse provider for Covered Services provided to Members enrolled in Benefit Programs to
+                which this arrangement applies as follows:</p>
+            <p-table class="table" [value]="data">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>Services</th>
+                        <th>Billing Codes</th>
+                        <th>Rates</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-data>
+                    <tr>
+                        <td>{{data.serviceName}}</td>
+                        <td>{{data.codes}}</td>
+                        <td>{{data.charges}}</td>
+                    </tr>
+                </ng-template>
+            </p-table>
         </div>
-        <div class="col-sm-3" *ngIf="!isSuccess">
-            <div class="row">
-                <button class="btn btn-edit" type="button" (click)="needChange();">Need Changes&nbsp;&nbsp;<i class="fa fa-pencil"
-                        aria-hidden="true"></i></button>
+    </div>
+    <div class="p-col-3" *ngIf="!isSuccess">
+        <div class="p-grid">
+            <div class="p-col-12">
+                <button pButton type="button" label="Need Changes"
+                    class="ui-button-rounded ui-button-grey ui-button-width" (click)="needChange()"></button>
             </div>
-            <div class="row">
-                &nbsp;
+            <div class="p-col-12"></div>
+            <div class="p-col-1 info-box yellow-color margin-1">
+                <i class="pi pi-info-circle"></i>
             </div>
-            <div class="row">
-                <div class="info-box yellow-color">
-                    <span class="txt-spacing"><i class="fa fa-info-circle" aria-hidden="true"></i></span>
-                </div>
-                <div class="info-box light-yellow-color">
-                    <span class="txt-spacing">1 Update done</span>
-                </div>
+            <div class="p-col-6 info-box light-yellow-color">
+                <span class="txt-spacing">1 Update done</span>
             </div>
-            <div class="row">
-                &nbsp;
-            </div>
-            <div class="row">
+            <div class="p-col-12"></div>
+            <div class="p-col-12">
                 <div class="info-box" style="width:65%;padding: 5px;">
-                    <span class="txt-spacing">5% of providers in your area have requested for a similar change.</span>
+                    <span class="txt-spacing">5% of providers in your area have requested for a similar
+                        change.</span>
                 </div>
             </div>
         </div>
-        <div class="col-sm-3" *ngIf="isSuccess">
-            <b>Section#4</b>
-            <p>
-                68% is not an acceptable rate.
-            </p>
-            <p>
-                Consider 86% of Billed Charges.
-            </p>
-            <button class="btn btn-round" type="button" style="margin-bottom: 5%" (click)="accept()">Accept</button>
-            <button class="btn btn-round" type="button" (click)="initiateDiscussion()">Initiate Discussion</button>
-        </div>
     </div>
+    <div class="p-col-3" *ngIf="isSuccess">
+        <b>Section#4</b>
+        <p>
+            68% is not an acceptable rate.
+        </p>
+        <p>
+            Consider 86% of Billed Charges.
+        </p>
 
-    <div class="row">
-        &nbsp;
+        <div class="p-col-12"></div>
+        <button pButton type="button" label="Accept" class="ui-button-rounded ui-button-width"
+            (click)="accept()"></button>
+        <div class="p-col-12"></div>
+        <button pButton type="button" label="Initiate Discussion" class="ui-button-rounded ui-button-width"
+            (click)="initiateDiscussion()"></button>
     </div>
-    <div class="row">
-        <div class="col-sm-12">
-            <input type="checkbox"> I here by accepts all the terms and conditions.
-        </div>
+    <div class="p-col-12">
+        <p-checkbox [(ngModel)]="value" [binary]="true" label="I here by accepts all the terms and conditions.">
+        </p-checkbox>
     </div>
-    <div class="row">
-        &nbsp;
+    <div class="p-col-5">&nbsp;</div>
+    <div class="p-col-4">
+        <button pButton type="button" label="Cancel" class="ui-button-rounded ui-button-secondary ui-button-width"
+            (click)="reset()"></button>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button pButton type="button" label="Save & Continue" class="ui-button-rounded ui-button-width"
+            [disabled]="!value" (click)="next()"></button>
     </div>
-    <div class="row">
-        <div class="col-sm-5">
-            &nbsp;
-        </div>
-        <div class="col-sm-3">
-            <button class="btn btn-secondary" type="button">Cancel</button>&nbsp;&nbsp;
-            <button class="btn btn-primary" type="button">Save & Continue</button>
-        </div>
-    </div>
-
 </div>

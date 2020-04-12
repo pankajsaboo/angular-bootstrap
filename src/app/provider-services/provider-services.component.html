@@ -1,67 +1,78 @@
-<div class="container">
-    <div class="row">
-        &nbsp;
+<div class="p-grid container">
+    <div class="p-col-12">
+        <div class="p-grid">
+            <h1>Provider Services</h1>
+        </div>
     </div>
-    <div class="row">
-        <h1>Provider Services</h1>
+    <div class="p-col-9">
+        <div class="box">
+            <p>
+                Provider agrees to participate in, and this agreement shall apply to, CVS Health's Commercial PPO/EPO
+                (CVS Health Standard Network) Benefit Programs and all other Benefit under which CVS Health compensates
+                Provider for Covered Services<br />
+                pursuant to the compensation as in the Compensation section<br />
+                <br/>
+                <p-checkbox name="group1" value = "networkA" [(ngModel)]="value" label="Commercial PPO/EPO (Network A)" inputId="networkA" class ="padding-10"></p-checkbox><br />
+                <p-checkbox name="group1" value = "networkB" [(ngModel)]="value" label="Commercial PPO/EPO (Network B)" inputId="networkB" class ="padding-10"></p-checkbox><br/>
+                <p-checkbox name="group1" value = "networkC" [(ngModel)]="value" label="Commercial PPO/EPO (Health Network C)" inputId="networkC" class ="padding-10"></p-checkbox><br/>
+                <p-checkbox name="group1" value = "medicarePPO" [(ngModel)]="value" label="Medicare Advantage PPO" inputId="medicarePPO" class ="padding-10"></p-checkbox><br/>
+                <p-checkbox name="group1" value = "commercialHMO" [(ngModel)]="value" label="Commercial HMO" inputId="commercialHMO" class ="padding-10"></p-checkbox><br/>
+                <p-checkbox name="group1" value = "medicareAdvantageHMO" [(ngModel)]="value" label="Medicare Advantage HMO" inputId="medicareAdvantageHMO" class ="padding-10"></p-checkbox>
+                <br />
+                <br/>
+                1.1. Providing Covered Services,
+            </p>
+        </div>
     </div>
-    <div class="row">
-        <div class="col-sm-9">
-            <div class="card">
-                <div class="card-body">
-                    <p class="card-text">
-                        Provider agrees to participate in, and this agreement shall apply to, CVS Health's Commercial PPO/EPO (CVS Health Standard Network) Benefit Programs and all other Benefit under which CVS Health compensates Provider for Covered Services<br/>
-                        pursuant to the compensation as in the Compensation section<br/>
-                        <input type="checkbox"> Commercial PPO/EPO (Network A)<br/>
-                        <input type="checkbox"> Commercial PPO/EPO (Network B)<br/>
-                        <input type="checkbox"> Commercial PPO/EPO (Health Network C)<br/>
-                        <input type="checkbox"> Medicare Advantage PPO<br/>
-                        <input type="checkbox"> Commercial HMO<br/>
-                        <input type="checkbox"> Medicare Advantage HMO<br/>
-                        <br/>
-                        1.1. Providing Covered Services,
-                    </p>
+    <div class="p-col-3" *ngIf="!isSuccess">
+        <div class="p-grid">
+            <div class="p-col-12">
+                <button pButton type="button" label="Need Changes"
+                    class="ui-button-rounded ui-button-grey ui-button-width" (click)="needChange()"></button>
+            </div>
+            <div class="p-col-12"></div>
+            <div class="p-col-1 info-box yellow-color margin-1">
+                <i class="pi pi-info-circle"></i>
+            </div>
+            <div class="p-col-6 info-box light-yellow-color">
+                <span class="txt-spacing">1 Update done</span>
+            </div>
+            <div class="p-col-12"></div>
+            <div class="p-col-12">
+                <div class="info-box" style="width:65%;padding: 5px;">
+                    <span class="txt-spacing">5% of providers in your area have requested for a similar
+                        change.</span>
                 </div>
             </div>
         </div>
-        <div class="col-sm-3" *ngIf="!isSuccess">
-            <div class="row">
-                <button class="btn btn-edit" type="button" (click)="needChange();">Need Changes&nbsp;&nbsp;<i class="fa fa-pencil"
-                        aria-hidden="true"></i></button>
-            </div>
-        </div>
-        <div class="col-sm-3" *ngIf="isSuccess">
-            <b>Section#4</b>
-            <p>
-                68% is not an acceptable rate.
-            </p>
-            <p>
-                Consider 86% of Billed Charges.
-            </p>
-            <button class="btn btn-round" type="button" style="margin-bottom: 5%" (click)="accept()">Accept</button>
-            <button class="btn btn-round" type="button" (click)="initiateDiscussion()">Initiate Discussion</button>
-        </div>
     </div>
+    <div class="p-col-3" *ngIf="isSuccess">
+        <b>Section#4</b>
+        <p>
+            68% is not an acceptable rate.
+        </p>
+        <p>
+            Consider 86% of Billed Charges.
+        </p>
 
-    <div class="row">
-        &nbsp;
+        <div class="p-col-12"></div>
+        <button pButton type="button" label="Accept" class="ui-button-rounded ui-button-width"
+            (click)="accept()"></button>
+        <div class="p-col-12"></div>
+        <button pButton type="button" label="Initiate Discussion" class="ui-button-rounded ui-button-width"
+            (click)="initiateDiscussion()"></button>
     </div>
-    <div class="row">
-        <div class="col-sm-12">
-            <input type="checkbox"> I here by accepts all the terms and conditions.
-        </div>
+    <div class="p-col-12">
+        <p-checkbox [(ngModel)]="isTerms" [binary]="true" label="I here by accepts all the terms and conditions.">
+        </p-checkbox>
     </div>
-    <div class="row">
-        &nbsp;
-    </div>
-    <div class="row">
-        <div class="col-sm-5">
-            &nbsp;
-        </div>
-        <div class="col-sm-3">
-            <button class="btn btn-secondary" type="button">Cancel</button>&nbsp;&nbsp;
-            <button class="btn btn-primary" type="button">Save & Continue</button>
-        </div>
+    <div class="p-col-5">&nbsp;</div>
+    <div class="p-col-4">
+        <button pButton type="button" label="Cancel" class="ui-button-rounded ui-button-secondary ui-button-width"
+            (click)="reset()"></button>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button pButton type="button" label="Save & Continue" class="ui-button-rounded ui-button-width"
+            [disabled]="!isTerms" (click)="next()"></button>
     </div>
 
 </div>

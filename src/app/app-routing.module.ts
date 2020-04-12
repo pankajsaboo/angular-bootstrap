@@ -11,9 +11,9 @@ import { AetnaEnhancedGroupersComponent } from './aetna-enhanced-groupers/aetna-
 
 
 const routes: Routes = [
-  { path: '', component: CompensationComponentComponent },
+  { path: '', component: ProviderServicesComponent },
+  { path: 'compensation', component: CompensationComponentComponent },
   { path: 'despute-resolution', component: DesputeResolutionComponent },
-  { path: 'provider-services', component: ProviderServicesComponent },
   { 
     path: 'general-provisions', 
     component: GeneralProvisionsComponent,

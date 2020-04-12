@@ -1,5 +1,6 @@
 import { Component, OnInit, AfterViewInit, ChangeDetectorRef, AfterViewChecked, ViewChild, ElementRef, Renderer2 } from '@angular/core';
 import { GPTitleService } from '../services/gp-title.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-general-provisions',
@@ -16,12 +17,14 @@ export class GeneralProvisionsComponent implements OnInit, AfterViewChecked {
   oldTxt: string;
   newText: string;
   span: HTMLParagraphElement;
+  isTerms = false;
 
   @ViewChild('content') inputEl: ElementRef; 
 
   constructor(private gpTitleService: GPTitleService,
     private cdRef: ChangeDetectorRef,
-    private renderer: Renderer2) { }
+    private renderer: Renderer2,
+    private router: Router) { }
 
   ngOnInit(): void {
 
@@ -64,10 +67,15 @@ export class GeneralProvisionsComponent implements OnInit, AfterViewChecked {
     this.isDelete = true;
   }
 
-  cancelBtn(): void {
+  reset(): void {
     this.isSuccess = false;
     this.isAccept = false;
     this.isEdit = false;
     this.isDelete = false;
+    this.isTerms = false;
+  }
+
+  next():void {
+    this.router.navigate(['/compensation']);
   }
 }

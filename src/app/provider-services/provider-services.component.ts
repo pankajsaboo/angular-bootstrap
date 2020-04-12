@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-provider-services',
@@ -6,9 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./provider-services.component.css']
 })
 export class ProviderServicesComponent implements OnInit {
-  isSuccess:boolean;
-  
-  constructor() { }
+  isSuccess: boolean;
+  value = [];
+  isTerms = false;
+
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -23,6 +26,16 @@ export class ProviderServicesComponent implements OnInit {
 
   initiateDiscussion(): void {
     this.isSuccess = false;
+  }
+
+  next():void {
+    this.router.navigate(['/compensation']);
+  }
+
+  reset(): void {
+    this.isSuccess = false;
+    this.isTerms = false;
+    this.value = [];
   }
 
 }

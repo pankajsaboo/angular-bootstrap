@@ -11,3 +11,38 @@
 .light-yellow-color {
     background-color: lightyellow;
 }
+
+.container{
+    padding-top: 1em;
+    padding-left: 2em;
+}
+
+.box {
+    border-style: solid;
+    border-color: rgb(43, 46, 46);
+    border-width: thin;
+    padding: 1em;
+}
+
+.margin-3 {
+    margin-left: 3em;
+}
+
+.margin-1 {
+    margin-left: 8px;
+    width: 37px;
+}
+
+.ui-button-grey {
+    background-color: rgb(197, 188, 188);
+    border-color: gray;
+    color: black;
+}
+
+.ui-button-width {
+    width: 170px;
+}
+
+.padding-2 {
+    padding: 2px;
+}
